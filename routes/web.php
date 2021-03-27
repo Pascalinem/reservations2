@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('artist', 'App\Http\Controllers\ArtistController@index');
+Route::get('artist', 'App\Http\Controllers\ArtistController@index');    //App\Http\Controllers (important)
 Route::get('artist/{id}', 'App\Http\Controllers\ArtistController@show');
+
+Route::get('type', 'App\Http\Controllers\TypeController@index');
+Route::get('type/{id}', 'App\Http\Controllers\TypeController@show');
+Route::get('locality', 'App\Http\Controllers\LocalityController@index');
+Route::get(' locality/{id}', 'App\Http\Controllers\LocalityController@show');
+Route::get('role', 'App\Http\Controllers\RoleController@index');
+Route::get('role/{id}', 'App\Http\Controllers\RoleController@show');
+
 
