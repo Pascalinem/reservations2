@@ -35,10 +35,6 @@ class Show extends Model
      * Get the main location of the show
      */
     public function location(){
-        return $this->belongsTo('App\Location');
+        return $this->belongsTo('App\Models\Location');
     }
-
-    
-
-
 }

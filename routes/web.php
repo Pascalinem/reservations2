@@ -28,5 +28,7 @@ Route::get('role', 'App\Http\Controllers\RoleController@index');
 Route::get('role/{id}', 'App\Http\Controllers\RoleController@show');
 Route::get('location', 'App\Http\Controllers\LocationController@index');
 Route::get('location/{id}', 'App\Http\Controllers\LocationController@show');
+Route::get('show', 'App\Http\Controllers\ShowController@index');
+Route::get('show/{id}', 'App\Http\Controllers\ShowController@show');
 
 
