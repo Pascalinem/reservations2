@@ -42,4 +42,11 @@ class Location extends Model
           return $this->belongsTo('App\Models\Locality');
       }
 
+      /**
+       * Get the shows in this location
+       */
+      public function shows(){
+          return $this->hasMany('App\Models\Show');
+      }
+
 }

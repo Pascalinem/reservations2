@@ -18,7 +18,11 @@ class LocationsTableSeeder extends Seeder
     public function run()
     {
         //Emptu the table first
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');  //desactive vérification contraintes clés étrangères
+
         Location::truncate();
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');  //activation "" ""
 
         //Define data
         $locations = [
