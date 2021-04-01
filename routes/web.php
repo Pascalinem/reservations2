@@ -23,8 +23,10 @@ Route::get('artist/{id}', 'App\Http\Controllers\ArtistController@show');
 Route::get('type', 'App\Http\Controllers\TypeController@index');
 Route::get('type/{id}', 'App\Http\Controllers\TypeController@show');
 Route::get('locality', 'App\Http\Controllers\LocalityController@index');
-Route::get(' locality/{id}', 'App\Http\Controllers\LocalityController@show');
+Route::get('locality/{id}', 'App\Http\Controllers\LocalityController@show');
 Route::get('role', 'App\Http\Controllers\RoleController@index');
 Route::get('role/{id}', 'App\Http\Controllers\RoleController@show');
+Route::get('location', 'App\Http\Controllers\LocationController@index');
+Route::get('location/{id}', 'App\Http\Controllers\LocationController@show');
 
 
