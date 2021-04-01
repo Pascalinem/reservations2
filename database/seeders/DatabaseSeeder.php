@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             TypesTableSeeder::class,
             LocationsTableSeeder::class,
             ShowsTableSeeder::class,
+            RepresentationsTableSeeder::class,
         ]);
     }
 }

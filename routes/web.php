@@ -30,5 +30,6 @@ Route::get('location', 'App\Http\Controllers\LocationController@index');
 Route::get('location/{id}', 'App\Http\Controllers\LocationController@show');
 Route::get('show', 'App\Http\Controllers\ShowController@index');
 Route::get('show/{id}', 'App\Http\Controllers\ShowController@show');
-
+Route::get('representation', 'App\Http\Controllers\RepresentationController@index');
+Route::get('representation/{id}', 'App\Http\Controllers\RepresentationController@show');
 
