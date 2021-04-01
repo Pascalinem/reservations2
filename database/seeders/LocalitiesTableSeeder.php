@@ -15,8 +15,13 @@ class LocalitiesTableSeeder extends Seeder
      */
     public function run()
     {
+
         //Empty the table first
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');  //desactivation de la vérification des clés étrangères
+
         Locality::truncate();
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');  //activation de la vérification des clés étrangères
         
         //Define data
        $localities = [
@@ -26,6 +31,9 @@ class LocalitiesTableSeeder extends Seeder
             ['postal_code' =>'4280', 'locality' => 'Liège'],
             ['postal_code' =>'2000', 'locality' => 'Anvers'],
             ['postal_code' =>'6000', 'locality' => 'Charleroi'],
+
+            ['postal_code' =>'1170', 'locality' => 'Watermael-boitsfort'],
+
         ];
         
         //Insert data in the table

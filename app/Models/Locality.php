@@ -7,7 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Locality extends Model
 {
-    protected $fillable = ['locality'];
+    protected $fillable = ['postal_code', 'locality'];
     protected $table = 'localities'; //nom de la table
     public $timestamps = false;
+
+    /*
+    *   Get the locations for the locality
+    */
+    public function locations(){
+        return $this->hasMany('App\Models\Location');
+    }
 }
