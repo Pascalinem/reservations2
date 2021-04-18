@@ -28,4 +28,11 @@ class Artist extends Model
      */
     public $timestamps = false;
 
+    /**
+     * The types that belong to the artist.
+     */
+    public function types(){
+      return $this->belongsToMany('App\Models\Type');
+    }
+
 }
