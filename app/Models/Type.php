@@ -17,4 +17,5 @@ class Type extends Model
     public function artists(){
         return $this->belongsToMany('App\Models\Artist');
     }
+    
 }
