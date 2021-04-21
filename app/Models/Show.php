@@ -48,8 +48,9 @@ class Show extends Model
      /**
      * Get the performance (artist in a type of collaboration) for the show
      */
-    public function artistType()
+    public function artistTypes()
     {
-        return $this->belongsTo('App\Models\ArtistType');
+        return $this->belongsToMany(ArtistType::class);
+        //soit ArtistType::class ou 'App\Models\ArtistType'
     }
 }
