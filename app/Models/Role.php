@@ -10,4 +10,12 @@ class Role extends Model
     protected $fillable = ['role'];
     protected $table = 'roles'; //nom de la table
     public $timestamps = false;
+
+    /**
+     * Get the user for that association.
+     */
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User');
+    }
 }
