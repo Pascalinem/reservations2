@@ -52,5 +52,13 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Role');
     }
 
+    /**
+     * Get the representation for that association.
+     */
+    public function representations()
+    {
+        return $this->belongsToMany('App\Models\Representation');
+    }
+
     
 }

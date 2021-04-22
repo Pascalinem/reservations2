@@ -47,5 +47,13 @@ class Representation extends Model
         return $this->belongsTo('App\Models\Show');
     }
 
+    /**
+     * Get the user for that association.
+     */
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User');
+    }
+
 
 }
