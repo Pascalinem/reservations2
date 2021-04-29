@@ -20,8 +20,8 @@ Route::get('/', function () {
 Route::get('artist', 'App\Http\Controllers\ArtistController@index');    //App\Http\Controllers (important)
 Route::get('artist/{id}', 'App\Http\Controllers\ArtistController@show');
 
-Route::get('type', 'App\Http\Controllers\TypeController@index');
-Route::get('type/{id}', 'App\Http\Controllers\TypeController@show');
+Route::get('type', 'App\Http\Controllers\TypeController@index')->name('type_index');
+Route::get('type/{id}', 'App\Http\Controllers\TypeController@show')->where('id', '[0-9]+')->name('type_show');
 Route::get('locality', 'App\Http\Controllers\LocalityController@index');
 Route::get('locality/{id}', 'App\Http\Controllers\LocalityController@show');
 Route::get('role', 'App\Http\Controllers\RoleController@index');
@@ -32,4 +32,7 @@ Route::get('show', 'App\Http\Controllers\ShowController@index');
 Route::get('show/{id}', 'App\Http\Controllers\ShowController@show');
 Route::get('representation', 'App\Http\Controllers\RepresentationController@index');
 Route::get('representation/{id}', 'App\Http\Controllers\RepresentationController@show');
+
+Route::get('type/edit/{id}', [App\Http\Controllers\TypeController::class, 'edit'])->where('id', '[0-9]+')->name('type_edit');
+Route::put('type/{id}', [App\Http\Controllers\TypeController::class, 'update'])->where('id', '[0-9]+')->name('type_update');
 
