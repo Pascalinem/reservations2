@@ -25,7 +25,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('type.create');
     }
 
     /**
@@ -36,7 +36,12 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validation des données du formulaire
+        $validated = $request->validate(['type' => 'required|max:60']);
+
+        Type::Create($validated);
+
+        return redirect()->route('type_index');
     }
 
     /**
@@ -73,7 +78,7 @@ class TypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //Vlidation des données du formulaire
+        //Validation des données du formulaire
         $validated = $request->validate(['type' => 'required|max:60']);
 
         //le formulaire a été validé, nous récupérons l'artiste à modifier
@@ -93,6 +98,20 @@ class TypeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $type = Type::find($id);
+
+        //erreur car il y a une constrainte d'intégrité sur artist_type
+        //voir si on modifie la constainte ou si on laisse comme ça
+        try {
+            $type->delete();
+            return redirect()->route('type_index');
+          
+        } catch (\Illuminate\Database\QueryException $e) {  
+            //var_dump($e->errorInfo);
+            $message = "Le type ne peut pas être supprimé car il est déjà utilisé";
+            return back()->withInput(array('message' => $message));
+        }
+
+        
     }
 }

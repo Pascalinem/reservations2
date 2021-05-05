@@ -35,4 +35,6 @@ Route::get('representation/{id}', 'App\Http\Controllers\RepresentationController
 
 Route::get('type/edit/{id}', [App\Http\Controllers\TypeController::class, 'edit'])->where('id', '[0-9]+')->name('type_edit');
 Route::put('type/{id}', [App\Http\Controllers\TypeController::class, 'update'])->where('id', '[0-9]+')->name('type_update');
-
+Route::delete('type/{id}', [App\Http\Controllers\TypeController::class, 'destroy'])->where('id', '[0-9]+')->name('type_delete');
+Route::get('type/create', [App\Http\Controllers\TypeController::class, 'create'])->name('type_create');
+Route::post('type', [App\Http\Controllers\TypeController::class, 'store'])->name('type_store');

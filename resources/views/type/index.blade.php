@@ -7,7 +7,9 @@
 
     <ul>
     @foreach($types as $type)
-        <li>{{ $type->type}}</li>
+        <li>{{$type->id }} - {{ $type->type}}</li>
     @endforeach
     </ul>
+
+    <nav><a href="{{ route('type_create') }}">Ajouter un type</a></nav>
 @endsection

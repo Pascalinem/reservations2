@@ -13,6 +13,16 @@
     </ul>
 
     <div><a href="{{ route('type_edit', $type->id) }}">Modifier</a></div>
+    
+    <form action="{{ route('type_delete' ,$type->id) }}" method="post">
+        @csrf
+        @method('DELETE')
+        <button>Supprimer</button>
+    </form>
+
+    @if(old('message'))
+        <p>{{ old('message') }}</p>
+    @endif
 
     <nav><a href="{{ route('type_index') }}">Retour à l'index</a></nav>
 
