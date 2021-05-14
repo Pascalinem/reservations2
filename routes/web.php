@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 Route::get('artist', 'App\Http\Controllers\ArtistController@index');    //App\Http\Controllers (important)
 Route::get('artist/{id}', 'App\Http\Controllers\ArtistController@show');
@@ -38,3 +41,6 @@ Route::put('type/{id}', [App\Http\Controllers\TypeController::class, 'update'])-
 Route::delete('type/{id}', [App\Http\Controllers\TypeController::class, 'destroy'])->where('id', '[0-9]+')->name('type_delete');
 Route::get('type/create', [App\Http\Controllers\TypeController::class, 'create'])->name('type_create');
 Route::post('type', [App\Http\Controllers\TypeController::class, 'store'])->name('type_store');
+
+require __DIR__.'/auth.php';
+
