@@ -18,6 +18,14 @@ class LocalitySeeder extends Seeder
         //empty table first
         Locality::truncate();
 
-        //
+        //define data
+        $localities=[
+            ['postal_code'=>'1000','locality'=>'Bruxelles'],
+
+        ];
+
+        //insert
+        DB::table('localities')->insert($localities);
+
     }
 }

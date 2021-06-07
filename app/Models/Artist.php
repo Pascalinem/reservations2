@@ -11,7 +11,7 @@ class Artist extends Model
     /**
      * @var array
      */
-    protected $fillable =['firtname','lastname'];
+    protected $fillable =['firtname','lastname',];
     /**
      * @var string
      */
@@ -19,5 +19,5 @@ class Artist extends Model
     /**
      * @var bool
      */
-    public $timestamp=false;
+    public $timestamps=false;
 }

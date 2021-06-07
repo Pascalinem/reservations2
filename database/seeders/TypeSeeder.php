@@ -17,5 +17,16 @@ class TypeSeeder extends Seeder
     {
         //Empty table first
         Type::truncate();
+
+        // define date
+        $types=[
+            ['type'=>'comédien'],
+            ['type'=>'scénographe'],
+            ['type'=>'auteur'],
+            ['type'=>'producteur'],
+        ];
+
+        //insert
+        DB::table('types')->insert($types);
     }
 }

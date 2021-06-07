@@ -11,7 +11,7 @@ class Locality extends Model
     /**
      * @var array
      */
-    protected $fillable=['postal-code','locality'];
+    protected $fillable=['postal-code','locality',];
     /**
      * @var string
      */
