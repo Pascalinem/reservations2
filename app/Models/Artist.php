@@ -11,4 +11,13 @@ class Artist extends Model
     /**
      * @var array
      */
+    protected $fillable =['firtname','lastname'];
+    /**
+     * @var string
+     */
+    protected $table="artists";
+    /**
+     * @var bool
+     */
+    public $timestamp=false;
 }
