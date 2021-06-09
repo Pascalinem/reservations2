@@ -16,16 +16,18 @@ class LocalitySeeder extends Seeder
     public function run()
     {
         //empty table first
+        DB::statement('set foreign_key_checks=0');
         Locality::truncate();
+        DB::statement('set foreign_key_checks=1');
+ //define data
+       $localities=[
+           ['postal_code'=>'1000','locality'=>'Bruxelles'],
+           ['postal_code'=>'1170','locality'=>'Watermael-Boitsfort'],
 
-        //define data
-        $localities=[
-            ['postal_code'=>'1000','locality'=>'Bruxelles'],
-
-        ];
+       ];
 
         //insert
-        DB::table('localities')->insert($localities);
-
+       DB::table('localities')->insert($localities);
+       
     }
 }

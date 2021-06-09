@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use phpDocumentor\Reflection\Location;
 
 class Locality extends Model
 {
@@ -20,4 +21,12 @@ class Locality extends Model
      * @var
      */
     public $timestamps=false;
+
+    /**
+     * locations correponding to the locality
+     */
+
+     public function locations(){
+         return $this->hasMany(Location::class);
+     }
 }
