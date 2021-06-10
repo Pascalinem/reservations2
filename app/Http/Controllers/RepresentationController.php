@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Representation;
+use Carbon\Carbon;
 
 class RepresentationController extends Controller
 {
@@ -53,8 +54,14 @@ class RepresentationController extends Controller
     {
         //
         $representation= Representation::find($id);
+
+        $date=Carbon::parse($representation->when)->format('d/m/Y');
+        $time=Carbon::parse($representation->when)->format('G:i');
+;
         return view('representation.show',[
             'representation'=> $representation,
+            'date'=>$date,
+            'time'=>$time,
             
         ]);
 

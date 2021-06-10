@@ -32,7 +32,7 @@ Route::get('/location/{id}',[LocationController::class, 'show'])->where('id','[0
 Route::get('/locality',[LocalityController::class,'index'])->name('locality_index');
 Route::get('/locality/{id}',[LocalityController::class,'show'])->where('id','[0-9]+')->name('locality_show');
 
-Route::get('/representation',[Representation::class,'index'])->name('representation_index');
+Route::get('/representation',[RepresentationController::class,'index'])->name('representation_index');
 Route::get('/representation/{id}',[RepresentationController::class, 'show'])->where('id','[0-9]+')->name('representation_show');
 
 Route::get('/role',[RoleController::class,'index'])->name('role_index');
