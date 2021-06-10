@@ -15,9 +15,10 @@ class CreateRepresentationsTable extends Migration
     {
         Schema::create('representations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('location_id')->nullable();
             $table->foreignId('show_id');
-            $table->date('when');
-            $table->foreignId('location_id');
+            $table->dateTime('when');
+            
           
 
             $table->foreign('location_id')->references('id')->on('locations')

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Artist;
 use App\Models\Location;
 use App\Models\Locality;
+use App\Models\Representation;
 use App\Models\Role;
 use App\Models\Type;
 use app\Models\Show;
@@ -28,6 +29,7 @@ class DatabaseSeeder extends Seeder
             TypeSeeder::class,
             LocationSeeder::class,
             ShowSeeder::class,
+            RepresentationSeeder::class,
 
         ]);
     }

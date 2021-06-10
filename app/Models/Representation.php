@@ -10,9 +10,9 @@ class Representation extends Model
     use HasFactory;
 
     protected $fillable=[
+        'location_id',
         'show_id',
         'when',
-        'location_id',
     ];
 
     protected $table ='representations';
@@ -23,7 +23,9 @@ class Representation extends Model
         return $this->belongsTo(Location::class);
     }
 
-
+    public function show(){
+        return $this->belongsTo(Show::class);
+    }
 
 
 
