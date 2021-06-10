@@ -7,6 +7,7 @@ use App\Models\Location;
 use App\Models\Locality;
 use App\Models\Role;
 use App\Models\Type;
+use app\Models\Show;
 
 use Illuminate\Database\Seeder;
 
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             TypeSeeder::class,
             LocationSeeder::class,
+            ShowSeeder::class,
 
         ]);
     }

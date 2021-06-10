@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Location extends Model
 {
@@ -29,6 +30,13 @@ class Location extends Model
 
     }
 
+    public function shows(){
+        return $this->hasMany(Show::class);
+    }
+
+    public function representations(){
+        return $this->hasMany(Representation::class);
+    }
 
 
 
