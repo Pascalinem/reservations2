@@ -4,6 +4,9 @@ use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\LocalityController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TypeController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\RepresentationController;
+use App\Http\Controllers\ShowController;
 use Illuminate\Support\Facades\Route;
 
 /*

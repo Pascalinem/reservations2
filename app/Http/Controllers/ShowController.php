@@ -18,7 +18,7 @@ class ShowController extends Controller
         $shows=Show::all();
         return view('show.index',[
             'shows'=>$shows,
-            'resource'=>'shows',
+            'resource'=>'spectacles',
         ]
 
         );
