@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Liste des Lieux de spectacles')
+@section('title', 'Liste de localités')
 @section('content')
 <h1> Liste des {{ $resource }} </h1>
 <table>
