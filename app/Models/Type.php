@@ -20,4 +20,8 @@ class Type extends Model
      * @var
      */
     public $timestamps=false;
+
+    public function artists(){
+      return $this->belongsToMany(Artist::class);
+    }
 }
