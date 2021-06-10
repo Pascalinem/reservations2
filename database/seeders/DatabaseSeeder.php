@@ -3,9 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\Artist;
+use App\Models\Location;
 use App\Models\Locality;
 use App\Models\Role;
 use App\Models\Type;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

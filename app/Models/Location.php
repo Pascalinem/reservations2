@@ -12,7 +12,7 @@ class Location extends Model
     /**
      * @var array
      */
-    protected $fillable = ['slug','designation','address','locality_id','website','phone',];
+    protected $fillable = ['slug','designation','address','locality_id','website','phone'];
     /**
      * @var string
      */
@@ -21,9 +21,11 @@ class Location extends Model
      * @var bool
      */
     public $timestamps= false;
-
+    /**
+     * Get the locality of the location
+     */
     public function locality(){
-        return $this->BelongsTo(Location::class);
+        return $this->belongsTo(Locality::class);
 
     }
 

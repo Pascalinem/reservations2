@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use phpDocumentor\Reflection\Location;
+
 
 class Locality extends Model
 {
@@ -12,7 +12,7 @@ class Locality extends Model
     /**
      * @var array
      */
-    protected $fillable=['postal-code','locality',];
+    protected $fillable=['postal-code','locality'];
     /**
      * @var string
      */

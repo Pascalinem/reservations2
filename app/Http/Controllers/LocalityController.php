@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Database\Seeders\LocalitySeeder;
+
 use App\Models\Locality;
 use Illuminate\Http\Request;
 
@@ -53,7 +53,8 @@ class LocalityController extends Controller
     public function show($id)
     {
         //
-        $locality=Locality::find($id);
+        $locality = Locality::find($id);
+        
         return view('locality.show',[
             'locality'=>$locality,
         ]);
