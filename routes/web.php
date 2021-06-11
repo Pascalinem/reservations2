@@ -25,6 +25,10 @@ Route::get('/', function () {
 });
 Route::get('/artist',[ArtistController::class,'index'])->name('artist_index');
 Route::get('/artist/{id}',[ArtistController::class,'show'])->where('id','[0-9]+')->name('artist_show');
+Route::get('/artist/edit/{id}',[ArtistController::class,'edit'])->where('id','[0-9]+')->name('artist_edit');
+Route::put('/artist/update/{id}',[ArtistController::class,'update'])->where('id','[0-9]+')->name('artist_update');
+
+
 
 Route::get('/location',[LocationController::class,'index'])->name('location_index');
 Route::get('/location/{id}',[LocationController::class, 'show'])->where('id','[0-9]+')->name('location_show');
