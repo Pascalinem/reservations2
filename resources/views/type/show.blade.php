@@ -11,6 +11,8 @@
         <li>{{ $artist->firstname }} {{ $artist->lastname }}</li>
     @endforeach
     </ul>
-    
+
+    <div><a href="{{route('type_edit',$type->id)}}">Modifier</a></div>
+    &nbsp;
     <nav><a href="{{ route('type_index') }}">Retour à l'index</a></nav>
 @endsection

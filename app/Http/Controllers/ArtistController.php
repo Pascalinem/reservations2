@@ -92,7 +92,7 @@ class ArtistController extends Controller
         //validation des données du formulaire
 
         $validated=$request->validate([
-            'fistname'=>'required|max:60',
+            'firstname'=>'required|max:60',
             'lastname'=>'required|max:60',
         ]);
 
@@ -122,5 +122,10 @@ class ArtistController extends Controller
     public function destroy($id)
     {
         //
+        $artist=Artist::find($id);
+       $artist->delete();
+       
+
+        return redirect('/artist')->with('success','L\'artiste a bien été supprimé.');
     }
 }
