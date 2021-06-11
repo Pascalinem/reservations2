@@ -73,6 +73,11 @@ class ArtistController extends Controller
     public function edit($id)
     {
         //
+        $artist=Artist::find($id);
+
+        return view('artist.edit',[
+            'artist'=>$artist,
+        ]);
     }
 
     /**
@@ -84,7 +89,28 @@ class ArtistController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //validation des données du formulaire
+
+        $validated=$request->validate([
+            'firstname'=>'required|max:60',
+            'lastname'=>'required|max:60',
+        ]);
+
+
+        	   //Le formulaire a été validé, nous récupérons l’artiste à modifier
+               $artist = Artist::find($id);
+
+               //mise à jour
+               $artist->update($validated);
+
+            return view('artist.show',[
+                'artist'=>$artist,
+            ]
+
+            );
+
+
+
     }
 
     /**
@@ -96,5 +122,10 @@ class ArtistController extends Controller
     public function destroy($id)
     {
         //
+        $artist=Artist::find($id);
+       $artist->delete();
+       
+
+        return redirect('/artist')->with('success','L\'artiste a bien été supprimé.');
     }
 }

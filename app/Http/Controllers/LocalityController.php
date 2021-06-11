@@ -19,7 +19,7 @@ class LocalityController extends Controller
         $localities = Locality::all();
         return view( 'locality.index',[
             'localities'=>$localities,
-            'resource'=>"localités"
+            'resource'=>'localités'
         ]);
     }
 
@@ -69,6 +69,12 @@ class LocalityController extends Controller
     public function edit($id)
     {
         //
+        $locality=Locality::find($id);
+
+        return view('locality.edit',[
+            'locality'=>$locality,
+        ]); 
+    
     }
 
     /**
@@ -81,6 +87,21 @@ class LocalityController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validated= $request->validate([
+            'postal_code'=>'required|max:6',
+            'locality'=>'required|max:60',
+           
+         ] );
+         //
+         $locality=Locality::find($id);
+
+         //mise à jour
+         $locality->update($validated);
+         return view('locality.show',[
+                'locality'=>$locality,
+            ]
+
+         );
     }
 
     /**

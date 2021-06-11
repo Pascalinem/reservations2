@@ -17,9 +17,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
+        
+        'login',
         'password',
+        'firstname',
+        'lastname',
+        'email',
+        'email_verified_at',
+        'remember_token',
+        'langue',
     ];
 
     /**
@@ -40,4 +46,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public $timestamps= true;
+
+    public function roles(){
+        return $this->belongsToMany(Role::class);
+    }
+
+
+    public function representations(){
+        return $this->belongsToMany(Representation::class);
+    }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArtistTypeTable extends Migration
+class CreateRoleUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateArtistTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('artist_type', function (Blueprint $table) {
+        Schema::create('role_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('artist_id');
-            $table->foreignId('type_id');
+            $table->foreignId('role_id');
+            $table->foreignId('user_id');
 
-            $table->foreign('artist_id')->references('id')->on('artists')
-            ->onDelete('cascade')->onUpdate('cascade');
-             $table->foreign('type_id')->references('id')->on('types')
+            $table->foreign('role_id')->references('id')->on('roles')
+            ->onDelete('restrict')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')
             ->onDelete('restrict')->onUpdate('cascade');
         });
     }
@@ -32,6 +32,6 @@ class CreateArtistTypeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('artist_type');
+        Schema::dropIfExists('role_user');
     }
 }

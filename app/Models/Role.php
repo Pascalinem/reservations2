@@ -20,4 +20,13 @@ class Role extends Model
      * @var
      */
     public $timestamps=false;
+
+
+
+
+
+    public function users(){
+      return $this->belongsToMany(User::class);
+  }
+
 }

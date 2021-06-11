@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Database\Seeders\TypeSeeder;
-use App\Models\Type;
 use Illuminate\Http\Request;
+use App\Models\User;
 
-class TypeController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,11 @@ class TypeController extends Controller
     public function index()
     {
         //
-        $types=Type::all();
-        Return view('type.index',[
-            'types'=>$types,
-            'resource'=>'types',
+        $users=User::all();
+
+        return view('user.index',[
+            'users'=>$users,
+            'resource'=>'utilisateurs'
         ]);
     }
 
@@ -53,11 +53,13 @@ class TypeController extends Controller
     public function show($id)
     {
         //
-        $type=Type::find($id);
+        $user=User::find($id);
 
-        return view('type.show',[
-            'type'=>$type,
-        ]);
+        return view('user.show',[
+            'user'=>$user,
+        ]
+
+        );
     }
 
     /**
@@ -69,11 +71,13 @@ class TypeController extends Controller
     public function edit($id)
     {
         //
-        $type=Type::find($id);
+        $user=User::find($id);
 
-        return view('type.edit',[
-            'type'=>$type,
-        ]);
+        return view('user.edit',[
+            'user'=>$user,
+        ]
+
+        );
     }
 
     /**
@@ -86,23 +90,22 @@ class TypeController extends Controller
     public function update(Request $request, $id)
     {
         //
-        
         $validated=$request->validate([
-            'type'=>'required|max:60',
+            'login'=>'required|max:12',
+           'password'=>'required|min:12',
+            'firstname'=>'required|max:60',
+            'lastname'=>'required|max:60',
+            'email'=>'regex:/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$ '
+        ]);
+        //recup
+        $user=User::find($id);
+
+        // mise à jour
+        $user->update($validated);
+        return view('user.show',[
+            'user'=>$user,
         ]);
 
-
-        	   //Le formulaire a été validé, nous récupérons l’artiste à modifier
-               $type = Type::find($id);
-
-               //mise à jour
-               $type->update($validated);
-
-            return view('type.show',[
-                'type'=>$type,
-            ]
-
-            );
     }
 
     /**
