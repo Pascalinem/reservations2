@@ -15,12 +15,12 @@ class ArtistController extends Controller
     public function index()
     {
         //
-        $artists = Atist::all();
+        $artists = Artist::all();
 
         return view('artist.index',[
             'artists' => $artists,
             'resource' => 'artistes',
-        ])
+        ]);
     }
 
     /**
